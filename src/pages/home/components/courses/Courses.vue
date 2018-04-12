@@ -23,8 +23,11 @@ export default {
   },
   methods: {
     deleteCourse: function(id) {
-      return this.courses = this.courses
-        .filter(course => course.id !== id);
+      this.$http.delete('http://localhost:8081/courses/' + id)
+        .then(() => this.courses = this.courses
+          .filter(course => (
+            course.id !== id
+        )));
     }
   },
   computed: {
@@ -41,6 +44,11 @@ export default {
     bus.$on('courseSearch', search => {
       this.wanted = search;
     });
+  },
+  updated() {
+    bus.$on('coursesWereUpdated', data => {
+      this.courses = data;
+    });
   }
 };
 </script>
@@ -55,3 +63,6 @@ ul {
 </style>
 
 
+
+      // return this.courses = this.courses
+      //   .filter(course => course.id !== id);

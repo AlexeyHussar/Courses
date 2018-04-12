@@ -1,34 +1,22 @@
 {
   "courses": [
-    { 
-      "id": 1,
-      "title": "Udemy Course", 
-      "duration": 61, 
-      "text": "some text some some"
+    {
+      "id": "6436c7f1-bac2-4e87-98bf-87ad78ddb062",
+      "title": "some course ",
+      "duration": "44",
+      "text": "qwertyuikjhgfds"
     },
-    { 
-      "id": 2,
-      "title": "NetNinja Course", 
-      "duration": 233, 
-      "text": "some text some some"
+    {
+      "id": "3629b814-eb25-4f23-888c-69a700aea228",
+      "title": "Another one ",
+      "duration": "12323",
+      "text": "asafsafafasf"
     },
-    { 
-      "id": 3,
-      "title": "Traversy Course", 
-      "duration": 44, 
-      "text": "some text some some"
-    },                
-    { 
-      "id": 4,
-      "title": "Another Course", 
-      "duration": 78, 
-      "text": "some text some some"
-    },                
-    { 
-      "id": 5,
-      "title": "Last Course", 
-      "duration": 44, 
-      "text": "some text some some"
-    }                             
+    {
+      "id": "9a537033-ad73-4031-9889-042f5c86b1e2",
+      "title": "qwerty",
+      "duration": "456",
+      "text": "Hey, ho, let's go"
+    }
   ]
 }

@@ -1,6 +1,7 @@
 <template>
   <div id='home-page'>
-    <Controls event-type="courseSearch" :submitHandler="submitHandler" />
+    <Controls event-type="courseSearch" 
+      :submitHandler="addCourseRedirect" />
     <Courses />
   </div>
 </template>
@@ -15,7 +16,7 @@ export default {
     Courses
   },
   methods: {
-    submitHandler: function() {
+    addCourseRedirect: function() {
       return this.$router.push('/add-course');
     }
   }
