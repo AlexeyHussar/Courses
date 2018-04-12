@@ -1,0 +1,34 @@
+{
+  "courses": [
+    { 
+      "id": 1,
+      "title": "Udemy Course", 
+      "duration": 61, 
+      "text": "some text some some"
+    },
+    { 
+      "id": 2,
+      "title": "NetNinja Course", 
+      "duration": 233, 
+      "text": "some text some some"
+    },
+    { 
+      "id": 3,
+      "title": "Traversy Course", 
+      "duration": 44, 
+      "text": "some text some some"
+    },                
+    { 
+      "id": 4,
+      "title": "Another Course", 
+      "duration": 78, 
+      "text": "some text some some"
+    },                
+    { 
+      "id": 5,
+      "title": "Last Course", 
+      "duration": 44, 
+      "text": "some text some some"
+    }                             
+  ]
+}

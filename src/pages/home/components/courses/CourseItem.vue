@@ -1,5 +1,5 @@
 <template>
-  <div id="course-item" :style="durationIndicator">
+  <div v-durationIndicator='{ duration: course.duration }' id="course-item">
     <div id="course-item-content">
       <h2>{{ course.title }} | Duration: {{ course.duration | showInHoures }}</h2>
       <article>{{ course.text }}</article>
@@ -12,10 +12,6 @@
 </template>
 
 <script>
-import {
-  showInHoures,
-  durationIndicator
-} from '../../../../mixins';
 
 export default {
   props: {
@@ -28,10 +24,6 @@ export default {
       required: true
     }
   },
-  mixins: [ 
-    showInHoures,
-    durationIndicator 
-  ],
 };
 </script>
 

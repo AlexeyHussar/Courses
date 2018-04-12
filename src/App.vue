@@ -9,7 +9,6 @@
 
 <script>
 import { Header, Footer } from './common';
-import Home from './pages/home/Home.vue';
 import Breadcrumbs from './shared/components/Breadcrumbs.vue';
 
 export default {

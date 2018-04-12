@@ -3,9 +3,9 @@
     <input type="text" 
       v-model="searchQuery"
       placeholder="Type course name">
-    <button><router-link class="add-course-button" to='/add-course' exact>
+    <button @click.prevent="submitHandler()">
       Add new Course   
-    </router-link></button> 
+    </button> 
   </div>  
 </template>
 
@@ -13,14 +13,24 @@
 import { bus } from '../../main';
 
 export default {
+  props: {
+    eventType: {
+      type: String,
+      required: true
+    },
+    submitHandler: {
+      type: Function,
+      required: true
+    }
+  },
   data() {
     return {
-      searchQuery: ''
+      searchQuery: '',
     };
   },
   watch: {
     searchQuery: function() {
-      bus.$emit('courseSearch', this.searchQuery);
+      bus.$emit(this.eventType, this.searchQuery);
     }
   }
 };

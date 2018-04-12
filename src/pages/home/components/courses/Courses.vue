@@ -8,12 +8,18 @@
 </template>
 
 <script>
-import searchMixin from '../../../../mixins/searchMixin';
+import { bus } from '../../../../main';
 import CourseItem from './CourseItem.vue';
 
 export default {
   components: {
     CourseItem
+  },
+  data() {
+    return {
+      wanted: '',
+      courses: []
+    };
   },
   methods: {
     deleteCourse: function(id) {
@@ -21,43 +27,20 @@ export default {
         .filter(course => course.id !== id);
     }
   },
-  mixins: [ searchMixin ],
-  data() {
-    return {
-      wanted: '',
-      courses: [
-        { 
-          id: 1,
-          title: 'Udemy Course', 
-          duration: 61, 
-          text: 'some text some some'
-        },
-        { 
-          id: 2,
-          title: 'NetNinja Course', 
-          duration: 233, 
-          text: 'some text some some'
-        },
-        { 
-          id: 3,
-          title: 'Traversy Course', 
-          duration: 44, 
-          text: 'some text some some'
-        },                
-        { 
-          id: 4,
-          title: 'Another Course', 
-          duration: 78, 
-          text: 'some text some some'
-        },                
-        { 
-          id: 5,
-          title: 'Last Course', 
-          duration: 44, 
-          text: 'some text some some'
-        },                                
-      ]
-    };
+  computed: {
+    filtredCourses: function() {
+      return this.courses.filter(course => (
+        course.title.toLowerCase().trim()
+          .match(this.wanted.toLowerCase().trim())
+      ))
+    }
+  },
+  created() {
+    this.$http.get('http://localhost:8081/courses')
+      .then(data => this.courses = data.body);
+    bus.$on('courseSearch', search => {
+      this.wanted = search;
+    });
   }
 };
 </script>
