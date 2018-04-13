@@ -1,8 +1,9 @@
 <template>
   <div id='home-page'>
-    <Controls event-type="courseSearch" 
-      :submitHandler="addCourseRedirect" />
-    <Courses />
+    <Controls button-title="Add course"
+      @addItem="addCourseRedirect"
+      @query="setSearchQuery" />
+    <Courses :query="query" />
   </div>
 </template>
 
@@ -15,9 +16,17 @@ export default {
     Controls,
     Courses
   },
+  data() {
+    return {
+      query: ''
+    }
+  },
   methods: {
-    addCourseRedirect: function() {
+    addCourseRedirect() {
       return this.$router.push('/add-course');
+    },
+    setSearchQuery(query) {
+      this.query = query;
     }
   }
 };

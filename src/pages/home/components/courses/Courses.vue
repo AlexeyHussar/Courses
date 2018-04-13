@@ -10,10 +10,17 @@
 <script>
 import { bus } from '../../../../main';
 import CourseItem from './CourseItem.vue';
+import courseRequest from '../../../../services/courseRequest'; 
 
 export default {
   components: {
     CourseItem
+  },
+  props: {
+    query: {
+      type: String,
+      required: true
+    }
   },
   data() {
     return {
@@ -22,8 +29,16 @@ export default {
     };
   },
   methods: {
-    deleteCourse: function(id) {
-      this.$http.delete('http://localhost:8081/courses/' + id)
+    getCourses() {
+      courseRequest.get()
+        .then(data => this.courses = data.body);
+    },
+    updateCourse() {
+      bus.$on('coursesWereUpdated', data => {
+        this.courses = data;
+    })},
+    deleteCourse(id) {
+      courseRequest.delete(id)
         .then(() => this.courses = this.courses
           .filter(course => (
             course.id !== id
@@ -34,21 +49,15 @@ export default {
     filtredCourses: function() {
       return this.courses.filter(course => (
         course.title.toLowerCase().trim()
-          .match(this.wanted.toLowerCase().trim())
-      ))
+          .match(this.query.toLowerCase().trim())
+      ));
     }
   },
   created() {
-    this.$http.get('http://localhost:8081/courses')
-      .then(data => this.courses = data.body);
-    bus.$on('courseSearch', search => {
-      this.wanted = search;
-    });
+    this.getCourses();
   },
   updated() {
-    bus.$on('coursesWereUpdated', data => {
-      this.courses = data;
-    });
+    this.updateCourse();
   }
 };
 </script>
@@ -61,8 +70,3 @@ ul {
   margin: 20px auto;
 }
 </style>
-
-
-
-      // return this.courses = this.courses
-      //   .filter(course => course.id !== id);

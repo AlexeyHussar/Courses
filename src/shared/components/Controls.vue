@@ -1,36 +1,35 @@
 <template>
   <div id="app-controls">
-    <input type="text" 
-      v-model="searchQuery"
-      placeholder="Type course name">
-    <button @click.prevent="submitHandler()">
-      Add new Course   
+    <input type="text" v-model="query"
+      placeholder="Type your query">
+    <button @click="onAdd">
+      {{ buttonTitle }}   
     </button> 
   </div>  
 </template>
 
 <script>
-import { bus } from '../../main';
 
 export default {
   props: {
-    eventType: {
+    buttonTitle: {
       type: String,
-      required: true
-    },
-    submitHandler: {
-      type: Function,
       required: true
     }
   },
   data() {
     return {
-      searchQuery: '',
+      query: '',
     };
   },
+  methods: {
+    onAdd() {
+      this.$emit('addItem');
+    }
+  },
   watch: {
-    searchQuery: function() {
-      bus.$emit(this.eventType, this.searchQuery);
+    query: function() {
+     this.$emit('query', this.query);
     }
   }
 };
