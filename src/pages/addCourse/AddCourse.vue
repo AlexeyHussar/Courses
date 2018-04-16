@@ -18,6 +18,8 @@
 import { v4 } from 'uuid';
 import { bus } from '../../main';
 import courseRequest from '../../services/courseRequest';
+import { mapActions } from 'vuex';
+import * as types from '../../store/types';
 
 export default {
   data() {
@@ -27,10 +29,10 @@ export default {
       text: ''
     };
   },
-  created() {
-    this.$store.dispatch('makeTrack', '/add-course');
-  },
   methods: {
+    ...mapActions({
+      makeTrack: types.MAKE_TRACK
+    }),
     addCourse() {
       courseRequest.post(v4(), this.title, this.duration, this.text)
         .then(data => {
@@ -38,7 +40,10 @@ export default {
           this.$router.push('/');        
         })
     }
-  }
+  },
+  created() {
+    this.makeTrack('/add-course');
+  },
 };
 </script>
 
