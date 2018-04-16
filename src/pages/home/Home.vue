@@ -21,6 +21,9 @@ export default {
       query: ''
     }
   },
+  created() {
+    this.$store.dispatch('makeTrack', '/');
+  },
   methods: {
     addCourseRedirect() {
       return this.$router.push('/add-course');

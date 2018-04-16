@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import App from './App.vue';
+import { store } from './store/store';
 import routes from './routes';
 import durationIndicator from './directives';
 import showInHoures from './filters'
@@ -25,5 +26,6 @@ Vue.filter('showInHoures', showInHoures);
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router,
+  store
 });

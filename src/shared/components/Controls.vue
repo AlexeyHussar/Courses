@@ -40,6 +40,7 @@ export default {
   max-width: 600px;
   margin: 20px auto;
   display: flex;
+  min-width: 300px;
 }
 
 input[type='text'], button {

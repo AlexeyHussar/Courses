@@ -1,12 +1,6 @@
 {
   "courses": [
     {
-      "id": "0a6c3041-135a-4f4d-b68e-83dcffba9b23",
-      "title": "Some course",
-      "duration": "123",
-      "text": "Another brilliant course\n"
-    },
-    {
       "id": "1fb4b266-9763-4510-918e-0bf3ad8037de",
       "title": "About stairs",
       "duration": "44",

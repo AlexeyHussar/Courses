@@ -27,6 +27,9 @@ export default {
       text: ''
     };
   },
+  created() {
+    this.$store.dispatch('makeTrack', '/add-course');
+  },
   methods: {
     addCourse() {
       courseRequest.post(v4(), this.title, this.duration, this.text)
@@ -76,6 +79,10 @@ export default {
 
 .add-course-button:hover {
   background-color: rgb(14, 214, 214);
+}
+
+h1 {
+  text-align: center;
 }
 </style>
 

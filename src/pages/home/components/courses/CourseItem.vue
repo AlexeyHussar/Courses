@@ -32,6 +32,7 @@ export default {
   display: flex;
   background-color: rgb(214, 214, 214);
   margin: 10px;
+  min-width: 300px;
 }
 
 #course-item-content {
@@ -50,7 +51,8 @@ button {
   display: inline-block;
   font-size: 15px;
   margin: 5px;
-  max-width: 30%;
+  max-width: 100%;
+  min-width: 40px;
 }
 
 article {
