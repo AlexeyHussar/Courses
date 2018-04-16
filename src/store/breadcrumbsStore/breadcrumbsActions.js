@@ -1,5 +1,5 @@
-import * as types from './types';
-import { computedCrumbs } from './storeHelpers';
+import * as types from './breadcrumbsTypes';
+import { computedCrumbs } from '../storeHelpers';
 
 export default {
   [types.MAKE_TRACK]: ({ commit }, payload) => (

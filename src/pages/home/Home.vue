@@ -11,7 +11,7 @@
 import Controls from '../../shared/components/Controls.vue';
 import Courses from './components/courses/Courses.vue';
 import { mapActions } from 'vuex' 
-import * as types from '../../store/types';
+import * as types from '../../store/breadcrumbsStore/breadcrumbsTypes';
 
 export default {
   components: {
@@ -28,7 +28,7 @@ export default {
       makeTrack: types.MAKE_TRACK
     }),
     addCourseRedirect() {
-      return this.$router.push('/add-course');
+      this.$router.push('/add-course');
     },
     setSearchQuery(query) {
       this.query = query;

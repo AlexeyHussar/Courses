@@ -1,13 +1,19 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import actions from './actions';
-import mutations from './mutations';
-import state from './state';
+import breadcrumbsActions from './breadcrumbsStore/breadcrumbsActions';
+import breadcrumbsMutations from './breadcrumbsStore/breadcrumbsMutations';
+import breadcrumbsState from './breadcrumbsStore/breadcrumbsState';
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-  state,
-  mutations,
-  actions
+  state: {
+    ...breadcrumbsState
+  },
+  mutations: {
+    ...breadcrumbsMutations
+  },
+  actions: {
+    ...breadcrumbsActions
+  }
 });

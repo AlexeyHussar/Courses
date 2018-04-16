@@ -2,7 +2,7 @@
   <div v-durationIndicator='{ duration: course.duration }' id="course-item">
     <div id="course-item-content">
       <h2>{{ course.title }} | Duration: {{ course.duration | showInHoures }}</h2>
-      <article>{{ course.text }}</article>
+      <div id="course-text"><article>{{ course.text }}</article></div>
     </div>
     <div id='course-item-controls'>
       <button>Edit Course</button>
@@ -49,7 +49,7 @@ export default {
 
 button {
   display: inline-block;
-  font-size: 15px;
+  font-size: 25px;
   margin: 5px;
   max-width: 100%;
   min-width: 40px;

@@ -19,7 +19,7 @@ import { v4 } from 'uuid';
 import { bus } from '../../main';
 import courseRequest from '../../services/courseRequest';
 import { mapActions } from 'vuex';
-import * as types from '../../store/types';
+import * as types from '../../store/breadcrumbsStore/breadcrumbsTypes';
 
 export default {
   data() {
@@ -42,6 +42,7 @@ export default {
     }
   },
   created() {
+    console.log(this.$route);
     this.makeTrack('/add-course');
   },
 };

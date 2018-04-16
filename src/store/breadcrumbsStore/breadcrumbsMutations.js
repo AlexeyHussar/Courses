@@ -1,4 +1,4 @@
-import * as types from './types';
+import * as types from './breadcrumbsTypes';
 
 export default {
   [types.MUTATE_MAKE_TRACK]: (state, payload) => (
