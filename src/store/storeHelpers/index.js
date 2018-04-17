@@ -1,16 +1,19 @@
-export const computedCrumbs = {
-  '/': 'home/',
-  '/add-course': 'home/add course'
-};
+export const computedTrack = (route) => {
+  let path = '';
+  let crumbs = [];
+  let track = route.split('/'); // got an array
 
-const COMP_CRUMBS = {
-  '/': {
-    name: '/home',
-    path: '/'
-  },
-  '/add-course': {
-    name: 'add course',
-    path: '/add-course'
+  for(let i = 0; i < track.length; i++) {
+    let name = track[i];
+
+    if (track[i] == '') {
+      continue;
+    }
+
+    path += '/' + name;
+    crumbs.push({ path: path, name: name });
   }
-};
 
+  return crumbs;
+  
+};

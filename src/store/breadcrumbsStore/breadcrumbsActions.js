@@ -1,16 +1,5 @@
 import * as types from './breadcrumbsTypes';
-
-const computedTrack = (route) => {
-  let path = '';
-  let crumbs = [];
-  let track = route.split('/'); // got an array
-  for(let i = 0; i < track.length; i++) {
-    let name = track[i];
-    path += '/' + name;
-    crumbs.push({ path: path });
-  };
-  return crumbs;
-};
+import { computedTrack } from '../storeHelpers';
 
 export default {
   [types.MAKE_TRACK]: ({ commit }, payload) => (

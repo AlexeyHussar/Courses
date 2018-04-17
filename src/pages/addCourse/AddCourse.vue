@@ -11,6 +11,7 @@
         placeholder="Type the course text"></textarea>
       <button class="add-course-button" type="submit">Add course</button>
     </form>
+    <router-link to="/add-course/some">Some</router-link>
   </div>
 </template>
 
