@@ -3,5 +3,5 @@ import AddCourse from './pages/addCourse/AddCourse.vue';
 
 export default [
   { path: '/', component: Home },
-  { path: '/add-course', component: AddCourse }
+  { path: '/add-course', component: AddCourse },
 ];

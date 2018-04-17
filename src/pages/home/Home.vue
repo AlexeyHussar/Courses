@@ -35,7 +35,7 @@ export default {
     }
   },
   created() {
-    this.makeTrack('/');
+    this.makeTrack(this.$route.path);
   }
 };
 

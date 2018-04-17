@@ -1,8 +1,8 @@
 <template>
   <ul id="breadcrumbs">
-    <li v-for="(crumb, index) in $store.state.breadcrumbs" :key="index">
-      <span>{{ crumb }}</span>
-    </li>         
+    <li v-for="(crumb, index) in $store.state.breadcrumbs" :key="index"> 
+      <router-link :to="crumb.path">{{ crumb.path }}</router-link>
+    </li>
   </ul>
 </template>
 

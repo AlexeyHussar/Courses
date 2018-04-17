@@ -42,8 +42,7 @@ export default {
     }
   },
   created() {
-    console.log(this.$route);
-    this.makeTrack('/add-course');
+    this.makeTrack(this.$route.path);
   },
 };
 </script>
