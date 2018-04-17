@@ -1,7 +1,7 @@
 <template>
   <ul id="breadcrumbs">
     <li v-for="(crumb, index) in $store.state.breadcrumbs" :key="index"> 
-      <router-link :to="crumb.path">{{ crumb.path }}</router-link>
+      <router-link :to="crumb.path">{{ crumb.name }}</router-link>
     </li>
   </ul>
 </template>
@@ -25,5 +25,6 @@ span {
 #breadcrumbs {
   margin-top: 90px;
   font-size: 20px;
+  height: 20px;
 }
 </style>

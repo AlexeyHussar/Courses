@@ -5,13 +5,14 @@ export const computedTrack = (route) => {
 
   for(let i = 0; i < track.length; i++) {
     let name = track[i];
+    let crumbName = name + '/';
 
     if (track[i] == '') {
       continue;
     }
 
     path += '/' + name;
-    crumbs.push({ path: path, name: name });
+    crumbs.push({ path: path, name: crumbName });
   }
 
   return crumbs;
