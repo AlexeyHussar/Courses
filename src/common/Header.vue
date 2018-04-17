@@ -1,8 +1,6 @@
 <template>
-  <header id='app-header'>
-    <div id='logo'>
-    </div>
-    <h1>Courses</h1>
+  <header id="app-header" @click="$router.push('/')">
+    <h1 @click="$router.push('/')">Courses</h1>
   </header>
 </template>
 
@@ -25,6 +23,9 @@ export default {
   text-align: center;
 }
 
+#app-header:hover {
+  background-color: rgb(15, 163, 168);  
+}
 </style>
 
 
